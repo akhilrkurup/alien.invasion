@@ -50,6 +50,8 @@ class AlienInvasion:
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                with open("highscorecounter.txt","w") as file_object:
+                    file_object.write(str(self.stats.high_score))
                 pygame.quit()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
@@ -67,6 +69,8 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
         elif event.key == pygame.K_q:
+            with open("highscorecounter.txt","w") as file_object:
+                file_object.write(str(self.stats.high_score))
             pygame.quit()
             sys.exit()
         elif event.key == pygame.K_SPACE:

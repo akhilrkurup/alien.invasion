@@ -14,8 +14,9 @@ class GameStats:
         self.reset_stats()
         #start alien invasion in an active state
         self.game_active=False
-        #high score should never be reset
-        self.high_score=0
+        with open("highscorecounter.txt") as file_object:
+            contents=file_object.read()
+        self.high_score=int(contents)
         
     def reset_stats(self):
         """initialize statistics that can change during the game"""
